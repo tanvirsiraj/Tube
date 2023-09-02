@@ -68,6 +68,8 @@ const displayData = (data) => {
         time.style.display = "none";
       }
 
+      let verified = singleData.authors.verified;
+
       tubeCard.classList = `card bg-white`;
       tubeCard.innerHTML = `
         <figure  class="rounded relative">
@@ -87,16 +89,22 @@ const displayData = (data) => {
             alt="Shoes"
           />
           <div class="space-y-1">
-          <h2 class="text-[#171717] font-bold text-base">${singleData.title}</h2>
+          <h2 class="text-[#171717] font-bold text-base">${
+            singleData.title
+          }</h2>
           <div class="flex  items-center gap-2">
-          <p class="text-[#171717B3] text-sm">Awlad Hossain</p>
-          <img
-
-          src="./img/verified.png"
-          alt="Shoes"
-        />
+          <p class="text-[#171717B3] text-sm">${
+            singleData.authors[0].profile_name
+          }</p>
+          ${
+            singleData.authors[0].verified
+              ? '<img src="./img/verified.png" alt="Shoes" />'
+              : ""
+          }
         </div>
-        <p class="text-[#171717B3] text-sm ">${singleData.others.views} views</p>
+        <p class="text-[#171717B3] text-sm ">${
+          singleData.others.views
+        } views</p>
           </div>
 
           </div>
