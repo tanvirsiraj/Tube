@@ -1,3 +1,5 @@
+let categoryId;
+
 const findCategory = async (category_name) => {
   const res = await fetch(
     "https://openapi.programming-hero.com/api/videos/categories"
@@ -113,8 +115,46 @@ tabs.forEach((tab) => {
     tabs.forEach((tab) => tab.classList.remove("tab-active"));
     tab.classList.add("tab-active");
     findCategory(tab.innerText);
+    categoryId = tab.innerText;
   });
   if (tab.innerText === "All") {
     findCategory(tab.innerText);
+    categoryId = tab.innerText;
   }
 });
+
+const findCategoryForSort = async (category_name) => {
+  const res = await fetch(
+    "https://openapi.programming-hero.com/api/videos/categories"
+  );
+  const data = await res.json();
+  console.log(data.data);
+  data.data.forEach((category) => {
+    if (category_name === category.category) {
+      //   console.log(category.category_id);
+      loadDataForSort(category.category_id);
+    }
+  });
+};
+
+const loadDataForSort = async (id) => {
+  console.log(id);
+  const res = await fetch(
+    ` https://openapi.programming-hero.com/api/videos/category/${id}`
+  );
+  const data = await res.json();
+  console.log(data.data);
+  let dataForSort = data.data;
+  dataForSort.sort((a, b) => {
+    return (
+      parseFloat(b.others.views.slice(0, -1)) -
+      parseFloat(a.others.views.slice(0, -1))
+    );
+  });
+  console.log(dataForSort);
+  displayData(dataForSort);
+};
+const sortByView = () => {
+  // console.log(categoryId);
+  findCategoryForSort(categoryId);
+};

@@ -23,7 +23,7 @@
     <header>
       <nav
         style="border-bottom: 2px solid rgba(23, 23, 23, 0.2)"
-        class="navbar lg:max-w-7xl mx-auto py-6"
+        class="navbar lg:max-w-7xl mx-auto py-6 z-"
       >
         <div class="navbar-start">
           <div class="dropdown">
@@ -45,9 +45,13 @@
             </label>
             <ul
               tabindex="0"
-              class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              class="menu menu-sm dropdown-content mt-3 p-2 rounded-box w-52 z-50"
             >
-              <a class="btn bg-[#25252533] border-0 text-black">Sort by view</a>
+              <a
+                onclick="sortByView()"
+                class="btn bg-[#FF1F3D] border-0 text-white z-50"
+                >Sort by view</a
+              >
             </ul>
           </div>
           <a class="cursor-pointer text-xl">
@@ -55,7 +59,11 @@
           </a>
         </div>
         <div class="navbar-center hidden lg:flex">
-          <a class="btn bg-[#25252533] border-0 text-black">Sort by view</a>
+          <a
+            onclick="sortByView()"
+            class="btn bg-[#25252533] hover:bg-[#25252533] border-0 text-black"
+            >Sort by view</a
+          >
         </div>
         <div class="navbar-end">
           <a class="btn bg-[#FF1F3D] border-0 text-white" href="./blog.html"
@@ -64,8 +72,8 @@
         </div>
       </nav>
     </header>
-    <main class="bg-white lg:max-w-7xl mx-auto">
-      <div class="tabs tabs-boxed bg-white flex justify-center mt-8 gap-6">
+    <main class="bg-white lg:max-w-7xl mx-auto z-20">
+      <div class="tabs tabs-boxed bg-white flex justify-center mt-8 gap-6 z-20">
         <a class="tab tab-active bg-[#25252533] mb-10 text-[#252525B2]">All</a>
         <a class="tab mb-10 bg-[#25252533] text-[#252525B2]">Music</a>
         <a class="tab bg-[#25252533] text-[#252525B2] mb-10">Comedy</a>
