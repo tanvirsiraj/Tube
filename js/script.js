@@ -25,49 +25,86 @@ const displayData = (data) => {
   console.log(data);
 
   const container = document.getElementById("card-container");
+  const container2 = document.getElementById("empty-container");
   container.innerHTML = "";
 
-  console.log(container);
-  data.forEach((singleData) => {
-    const tubeCard = document.createElement("div");
-    tubeCard.classList = `card  bg-white`;
-    tubeCard.innerHTML = ` 
-   
-      <img
-      class="rounded"
-      style="width:312px;height:200px;"
-        src="${singleData.thumbnail}"
-        alt="Shoes"
-      />
-   
-    <div class="">
-    <div class="flex  items-start gap-4 my-6">
-      <img 
-      class="rounded-full"
-      style="width:40px;height:40px;"
-      src="${singleData.authors[0].profile_picture}"
-      alt="Shoes"
-    />
-    <div class="space-y-1">
-    <h2 class="text-[#171717] font-bold text-base">${singleData.title}</h2>
-    <div class="flex  items-center gap-2">
-    <p class="text-[#171717B3] text-sm">Awlad Hossain</p>
-    <img 
-    
-    src="./img/verified.png"
-    alt="Shoes"
-  />
-  </div>
-  <p class="text-[#171717B3] text-sm ">${singleData.others.views} views</p>
-    </div>
-     
-    </div>
-   
-    </div>
- `;
+  //   console.log(container);
+  if (Array.isArray(data) && data.length === 0) {
+    container2.style.display = "block";
+    const card = document.createElement("div");
+    card.innerHTML = `
+    <div class="card">
+        <figure>
+            <img style="height:140px;width:140px;"
+                    src="./img/Icon.png" />
+        </figure>
+        <div class="card-body items-center text-center">
+        <h2 class="text-center text-[#171717] font-bold text-xl">Oops!! Sorry, There is no </br> content here</h2>
 
-    container.appendChild(tubeCard);
-  });
+  </div>
+</div>
+
+    `;
+    container2.appendChild(card);
+  } else {
+    container2.style.display = "none";
+
+    data.forEach((singleData) => {
+      const tubeCard = document.createElement("div");
+
+      const seconds = singleData.others.posted_date;
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+
+      const time = document.createElement("div");
+      time.classList = `bg-[#171717] text-white p-2 absolute right-4 md:right-12 lg:right-4 top-36 rounded`;
+      if (seconds != "") {
+        time.innerHTML = `
+        ${hours}hrs ${minutes} min ago
+        `;
+      } else {
+        time.style.display = "none";
+      }
+
+      tubeCard.classList = `card bg-white`;
+      tubeCard.innerHTML = `
+        <figure  class="rounded relative">
+            <img
+            class="rounded"
+            style="width:312px;height:200px;"
+              src="${singleData.thumbnail}"
+              alt="Shoes"
+            />
+        </figure>
+          <div class="card-body lg:p-0 lg:my-6">
+          <div class="flex items-start gap-4 ">
+            <img
+            class="rounded-full"
+            style="width:40px;height:40px;"
+            src="${singleData.authors[0].profile_picture}"
+            alt="Shoes"
+          />
+          <div class="space-y-1">
+          <h2 class="text-[#171717] font-bold text-base">${singleData.title}</h2>
+          <div class="flex  items-center gap-2">
+          <p class="text-[#171717B3] text-sm">Awlad Hossain</p>
+          <img
+
+          src="./img/verified.png"
+          alt="Shoes"
+        />
+        </div>
+        <p class="text-[#171717B3] text-sm ">${singleData.others.views} views</p>
+          </div>
+
+          </div>
+
+          </div>
+       `;
+      tubeCard.appendChild(time);
+      container.appendChild(tubeCard);
+    });
+  }
 };
 
 const tabs = document.querySelectorAll(".tab");

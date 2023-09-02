@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/blog.css" />
+  </head>
+  <body>
+    <div class="max-w-7xl mx-auto pt-6">
+      <div class="bg-[#25252526] p-6 rounded flex items-center justify-between">
+        <h2 class="text-3xl font-bold text-black">Questionnaire</h2>
+        <a class="btn bg-[#FF1F3D] text-white border-0" href="./index.html"
+          >Home</a
+        >
+      </div>
+      <div class="collapse collapse-plus bg-base-200 mt-8">
+        <input type="radio" name="my-accordion-3" checked="checked" />
+        <div class="collapse-title text-xl font-medium">
+          Discuss the scope of var, let, and const
+        </div>
+        <div class="collapse-content">
+          <p>
+            In JavaScript, var variables have function scope, let and const
+            variables have block scope, and all three are hoisted to some
+            extent. var variables can be accessed throughout the function or
+            file where they are declared, potentially leading to unintended
+            behavior. let and const variables are limited to the nearest
+            enclosing block, promoting code isolation and reducing variable
+            conflicts. While let variables can be reassigned within their scope,
+            const variables are constant but still allow modifications to object
+            properties or array elements. Modern JavaScript development favors
+            let and const over var due to their block scoping and improved code
+            predictability.
+          </p>
+        </div>
+      </div>
+      <div class="collapse collapse-plus bg-base-200 my-3">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title text-xl font-medium">
+          Tell us the use cases of null and undefined
+        </div>
+        <div class="collapse-content">
+          <p>
+            null is used to explicitly indicate the absence of a value or as a
+            deliberate placeholder for uninitialized variables, offering a clear
+            representation of missing data. undefined is the default value for
+            variables and function parameters when no value is assigned,
+            signifying that a value hasn't been provided or a property hasn't
+            been initialized yet.
+          </p>
+        </div>
+      </div>
+      <div class="collapse collapse-plus bg-base-200">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title text-xl font-medium">
+          What do you mean by REST API?
+        </div>
+        <div class="collapse-content">
+          <p>
+            A REST API (Representational State Transfer Application Programming
+            Interface) is a standardized way for software applications to
+            communicate with each other over the internet. It follows a set of
+            principles, using HTTP methods like GET (retrieve data), POST
+            (create data), PUT (update data), and DELETE (remove data) to
+            interact with resources, typically in JSON or XML format. REST APIs
+            are commonly used for web and mobile app development to access and
+            manipulate data on remote servers. They are known for their
+            simplicity, scalability, and flexibility in designing web services.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
