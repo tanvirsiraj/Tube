@@ -1,3 +1,13 @@
 body {
-  background: #fff;
+  height: 100%;
+  background: #fff !important;
+}
+.tabs {
+  background-color: #fff;
+}
+.tabs .tab {
+  color: #252525b2;
+}
+.tab-active {
+  background-color: #ff1f3d !important;
 }

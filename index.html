@@ -10,8 +10,16 @@
       type="text/css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
-  <body class="bg-white">
+  <body>
     <header>
       <nav
         style="border-bottom: 2px solid rgba(23, 23, 23, 0.2)"
@@ -43,7 +51,7 @@
             </ul>
           </div>
           <a class="cursor-pointer text-xl">
-            <img src="./Logo.png" alt="" />
+            <img src="./img/Logo.png" alt="" />
           </a>
         </div>
         <div class="navbar-center hidden lg:flex">
@@ -56,7 +64,18 @@
         </div>
       </nav>
     </header>
-
+    <main class="bg-white lg:max-w-7xl mx-auto">
+      <div class="tabs tabs-boxed bg-white flex justify-center mt-8 gap-6">
+        <a class="tab tab-active bg-[#25252533] mb-10 text-[#252525B2]">All</a>
+        <a class="tab mb-10 bg-[#25252533] text-[#252525B2]">Music</a>
+        <a class="tab bg-[#25252533] text-[#252525B2] mb-10">Comedy</a>
+        <a class="tab bg-[#25252533] mb-10 text-[#252525B2]">Drawing</a>
+      </div>
+      <div
+        id="card-container"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+      ></div>
+    </main>
     <script src="./js/script.js"></script>
   </body>
 </html>
